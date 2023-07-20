@@ -1,0 +1,1 @@
+These examples are based on those in the book _Python 3_ by Ernesti and Kaiser.
