@@ -6,9 +6,6 @@ python -m a002_book.b31_parallel.c2_threading.d1_prime.e1_console
 """
 
 
-assert __name__ == '__main__'
-
-
 class PrimeThread(threading.Thread):
     def __init__(self, n):
         super().__init__()

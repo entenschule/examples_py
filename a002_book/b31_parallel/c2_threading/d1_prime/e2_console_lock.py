@@ -6,9 +6,6 @@ python -m a002_book.b31_parallel.c2_threading.d1_prime.e2_console_lock
 """
 
 
-assert __name__ == '__main__'
-
-
 class PrimeThread(threading.Thread):
 
     lock = threading.Lock()

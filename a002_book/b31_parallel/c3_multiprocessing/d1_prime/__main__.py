@@ -6,9 +6,6 @@ python -m a002_book.b31_parallel.c3_multiprocessing.d1_prime
 """
 
 
-assert __name__ == '__main__'
-
-
 class PrimeProcess(multiprocessing.Process):
     def __init__(self, n, lock):
         super().__init__()
