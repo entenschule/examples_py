@@ -6,6 +6,9 @@ python -m a002_book.b31_parallel.c2_threading.d1_prime.e1_console
 """
 
 
+assert __name__ == '__main__'
+
+
 class PrimeThread(threading.Thread):
     def __init__(self, n):
         super().__init__()
@@ -32,7 +35,7 @@ user_input = input('▶ ')
 
 while user_input != 'q':
     try:
-        n = int(user_input)  # raises ValueError if input string contains anything but figures (even decimal point)
+        n = int(user_input)  # raises ValueError if string is not integer
         thread = PrimeThread(n)
         my_threads.append(thread)
         thread.start()
