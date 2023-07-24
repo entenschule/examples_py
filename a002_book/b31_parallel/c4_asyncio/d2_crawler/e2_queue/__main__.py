@@ -10,7 +10,7 @@ python -m a002_book.b31_parallel.c4_asyncio.d2_crawler.e2_queue
 
 
 parent_path = os.path.dirname(__file__)
-download_path = parent_path + '/downloaded_pages'
+download_path = parent_path + '/DOWNLOADS'
 try:
     os.mkdir(download_path)
 except FileExistsError:

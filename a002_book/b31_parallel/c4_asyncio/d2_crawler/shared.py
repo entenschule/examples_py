@@ -15,7 +15,7 @@ presidents = [
 ]
 
 
-big = True
+big = False
 
 if not big:
     article_names = presidents
