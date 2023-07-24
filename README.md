@@ -3,6 +3,7 @@
 ## dependencies
 
 `pip install -U pytest` (7.4.0)
+`pip install aiohttp aiofiles`
 
 
 ## pytest
@@ -15,6 +16,8 @@
 
 * [`a002_book/b31_parallel/c1_concurrent_futures/d2_pi`](a002_book/b31_parallel/c1_concurrent_futures/d2_pi):<br>
 Is there a performance difference by number of workers? How to measure it?
+
+* Why does `pip freeze` contain the line `examples-py @ file:///home/tilman/learn_py/examples_py`?
 
 
 ## git

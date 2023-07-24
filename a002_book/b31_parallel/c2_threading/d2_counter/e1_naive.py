@@ -23,4 +23,4 @@ B.start()
 A.join()
 B.join()
 
-print(CounterThread.value)
+print(CounterThread.value)  # something like 1556822 (instead of 2000000)

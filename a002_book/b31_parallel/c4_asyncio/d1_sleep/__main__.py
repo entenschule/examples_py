@@ -20,10 +20,10 @@ async def consecutive():
 
 async def parallel():
     print('parallel:')
-    task1 = asyncio.create_task(sleep_print(2.5))
-    task2 = asyncio.create_task(sleep_print(2))
-    await task1
-    await task2
+    a = asyncio.create_task(sleep_print(2.5))
+    b = asyncio.create_task(sleep_print(2))
+    await a
+    await b
 
 
 async def parallel_fail():

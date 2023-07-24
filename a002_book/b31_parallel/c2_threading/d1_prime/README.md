@@ -20,24 +20,28 @@ $ python -m a002_book.b31_parallel.c2_threading.d1_prime.e1_console
 
 ### with lock
 
-[e2_console_lock.py](e2_console_lock.py)
+[e2_console_lock.py](e2_console_lock.py)<br>
+(There is a similar [example using multiprocessing](../../c3_multiprocessing/d1_prime/__main__.py).)
 
-This version simply fails for products of primes that are not very small:
+This code seems broken by design:<br>
+For easy inputs (with small prime factors) the lock is not needed.<br>
+And for hard inputs it prevents the result from getting printed.<br>
+Examples of hard inputs are 76580839 (prime) and 67898329 (2953 &middot; 22993).
 
-```
+In the following example, the result for 67898329 is only printed after entering 123.
+
+``` 
 $ python -m a002_book.b31_parallel.c2_threading.d1_prime.e2_console_lock
-▶ 4374553
-▪ 4374553 is prime.
-▶ 76580839
-▶ 
+▶ 67898329
+▶ 123
+▪ 67898329 is not prime, because it is 2953 * 22993.
+▪ 123 is not prime, because it is 3 * 41.
 ```
 
-4374553 (prime) sometimes works.
-But 76580839 (prime) and 67898329 (2953 &middot; 22993) will fail.
+There is a [related question on Stackoverflow](https://stackoverflow.com/questions/76729716).
+According to the answer, the lock shuts after 5ms.<br>
+The time could be increased to 1 second with `sys.setswitchinterval(1)`.
 
-The stuck result can be released by entering an easy input:
-
-<img src="_img/e2_console_lock.png">
 
 ## loop instead of console
 

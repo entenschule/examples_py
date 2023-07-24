@@ -25,4 +25,4 @@ B.start()
 A.join()
 B.join()
 
-print(CounterThread.value)
+print(CounterThread.value)  # 2000000
