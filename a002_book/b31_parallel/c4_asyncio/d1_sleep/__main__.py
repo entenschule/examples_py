@@ -6,37 +6,39 @@ python -m a002_book.b31_parallel.c4_asyncio.d1_sleep
 """
 
 
-async def sleep_print(n):
+async def f(n):
     print(f'SLEEP for {n} seconds')
     await asyncio.sleep(n)
     print(f'back after {n} seconds')
+    return n
 
 
 async def consecutive():
     print('consecutive:')
-    await sleep_print(2.5)
-    await sleep_print(2)
+    await f(2.5)
+    await f(2)
+
+
+async def consecutive2():
+    print('consecutive2:')
+    await asyncio.create_task(f(2.5))
+    await asyncio.create_task(f(2))
 
 
 async def parallel():
     print('parallel:')
-    a = asyncio.create_task(sleep_print(2.5))
-    b = asyncio.create_task(sleep_print(2))
+    a = asyncio.create_task(f(2.5))
+    b = asyncio.create_task(f(2))
     await a
-    await b
-
-
-async def parallel_fail():
-    print('parallel fail:')
-    await asyncio.create_task(sleep_print(2.5))
-    await asyncio.create_task(sleep_print(2))
+    await b  # not needed
 
 
 asyncio.run(consecutive())
 print('----------------------')
-asyncio.run(parallel())
+asyncio.run(consecutive2())
 print('----------------------')
-asyncio.run(parallel_fail())
+asyncio.run(parallel())
+
 
 
 """

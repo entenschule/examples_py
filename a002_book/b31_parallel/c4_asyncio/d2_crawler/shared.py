@@ -1,27 +1,30 @@
+import os
 from time import time
 
 
-presidents = [
-    'George Washington',
-    'John Adams',
-    'Thomas Jefferson',
-    'James Madison',
-    'James Monroe',
-    'John Quincy Adams',
-    'Andrew Jackson',
-    'Martin Van Buren',
-    'William Henry Harrison',
-    'John Tyler'
-]
-
-
-big = False
+big = True
 
 if not big:
-    article_names = presidents
+    from .article_names import presidents, colonies
+    article_names_1 = presidents
+    article_names_2 = colonies
 else:
-    from .many_long_articles import many_long_articles
-    article_names = many_long_articles
+    from .article_names import some_long_articles, more_long_articles
+    article_names_1 = some_long_articles
+    article_names_2 = more_long_articles
+
+
+##################################################################
+
+
+def make_download_folder(file):
+    parent_path = os.path.dirname(file)
+    download_path = parent_path + '/DOWNLOADS'
+    try:
+        os.mkdir(download_path)
+    except FileExistsError:
+        pass
+    return download_path
 
 
 ##################################################################

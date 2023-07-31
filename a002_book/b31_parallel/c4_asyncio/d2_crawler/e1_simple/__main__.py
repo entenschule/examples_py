@@ -1,7 +1,12 @@
-import os
 import asyncio
 import aiohttp
-from ..shared import article_names, tock
+
+from ..shared import tock, big, make_download_folder
+if big:
+    from ..shared import article_names_1, article_names_2
+    article_names = article_names_1 + article_names_2  # 500 long articles
+else:
+    from ..shared import article_names_1 as article_names  # 10 presidents
 
 
 """
@@ -9,12 +14,7 @@ python -m a002_book.b31_parallel.c4_asyncio.d2_crawler.e1_simple
 """
 
 
-parent_path = os.path.dirname(__file__)
-download_path = parent_path + '/DOWNLOADS'
-try:
-    os.mkdir(download_path)
-except FileExistsError:
-    pass
+download_path = make_download_folder(__file__)
 
 
 async def download(session, article_name):

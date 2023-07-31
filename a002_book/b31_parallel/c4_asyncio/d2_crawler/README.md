@@ -126,3 +126,6 @@ With `big = True` the articles in [many_long_articles.py](many_long_articles.py)
 </td>
 </tr>
 </table>
+
+Just like in the short example, there is no relevant difference in performance.<br>
+The output shown is for `number_of_consumers = 3`, but it looks just like that for 50.

@@ -1,7 +1,12 @@
-import os
 import asyncio
 import aiohttp
-from ..shared import article_names, tock
+
+from ..shared import tock, big, make_download_folder
+if big:
+    from ..shared import article_names_1, article_names_2
+    article_names = article_names_1 + article_names_2  # 500 long articles
+else:
+    from ..shared import article_names_1 as article_names  # 10 presidents
 
 
 """
@@ -9,12 +14,10 @@ python -m a002_book.b31_parallel.c4_asyncio.d2_crawler.e2_queue
 """
 
 
-parent_path = os.path.dirname(__file__)
-download_path = parent_path + '/DOWNLOADS'
-try:
-    os.mkdir(download_path)
-except FileExistsError:
-    pass
+download_path = make_download_folder(__file__)
+
+
+number_of_consumers = 3
 
 
 def find_articles(queue):
@@ -42,7 +45,7 @@ async def crawl():
     find_articles(queue)
     html_dict = {}
     async with aiohttp.ClientSession() as s:
-        consumers = [asyncio.create_task(download(s, i, queue, html_dict)) for i in range(3)]
+        consumers = [asyncio.create_task(download(s, i, queue, html_dict)) for i in range(number_of_consumers)]
         await queue.join()
     for c in consumers:
         c.cancel()
@@ -53,8 +56,8 @@ html_dict = asyncio.run(crawl())
 for article_name, content in html_dict.items():
     n = article_names.index(article_name)
     print(f'○ {n}   {tock()}')
-    with open(f'{download_path}/{article_name}.html', 'w') as f_html:
-        f_html.write(content)
+    with open(f'{download_path}/{article_name}.html', 'w') as f:
+        f.write(content)
 
 
 """
