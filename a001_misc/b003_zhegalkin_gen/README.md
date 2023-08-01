@@ -1,3 +1,5 @@
+# calculate Zhegalkin twins using generators
+
 The green and the red truth tables are [Zhegalkin twins](https://en.wikiversity.org/wiki/Zhegalkin_matrix).<br>
 The Sierpinski triangle rows are the results of `conju`.<br>
 These rows are present for true entries in the initial truth table (green).<br>

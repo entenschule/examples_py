@@ -1,8 +1,9 @@
 # fun3
 
 This is my improvement of the [last version](../c02_generator).<br>
+(And the [next version](../c04_combine) is my attempt to improve this one.)
 
-The crucial feature in that answer was the return of a generator by `find_duplicates`.
+The crucial feature in the last version was the return of a generator by `find_duplicates`.
 
 But it is not efficient, to check all slugs for duplicates.<br>
 Instead, the function should refine the duplicates from the last step.

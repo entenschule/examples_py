@@ -12,7 +12,7 @@ def f():
         raise AssertionError
     finally:
         print('########### finally')
-        # return 123
+        return 123
 
 
 assert f() == 123

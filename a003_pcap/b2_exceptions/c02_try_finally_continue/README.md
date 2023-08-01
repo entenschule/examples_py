@@ -1,6 +1,19 @@
 `python -m a003_pcap.b2_exceptions.c02_try_finally_continue`
 
 
+```python
+for i in range(3):
+    print('----------------', i)
+    try:
+        print('try')
+        quotient = 1 / i
+        print(f'● quotient: {quotient}')
+    finally:
+        print('finally')
+        continue
+```
+
+
 The ZeroDivisionError for `i = 0` is not raised, because of the `continue` in the `finally` block.<br>
 It forces the return in the loop, and the saved exception is discarded.
 
