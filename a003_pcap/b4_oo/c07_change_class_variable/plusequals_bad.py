@@ -1,5 +1,5 @@
 """
-python -m a003_pcap.b4_oo.c07_change_class_variable.plusequals_bad
+python -m a003_pcap.b4_oo.c07_change_class_variable.addassign_bad
 """
 
 

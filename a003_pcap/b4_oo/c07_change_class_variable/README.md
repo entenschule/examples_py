@@ -26,7 +26,7 @@ class Bodyguard:
 
 ### add assign (bad)
 
-[plusequals_bad.py](plusequals_bad.py) &nbsp;
+[addassign_bad.py](addassign_bad.py) &nbsp;
 (The first specific guards `bg_prime` and `bg_foobar` have the same `protect` in all sections.)
 
 ```python
