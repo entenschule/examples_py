@@ -7,9 +7,13 @@ The effects of changing `Bodyguard.protect` are not easily guessed.
 
 ## main class with slightly different init methods
 
-### redefine (good)
+The three files contain the same classes and example variables.<br>
+But there is a (seemingly) small difference in `Bodyguard.__init__`.<br>
+The results for `+=` and `append` make no sense at all. (But they are different.)
 
-[redefine_good.py](redefine_good.py) is not without surprises, but gives meaningful results.
+### reassign (good)
+
+[reassign_good.py](reassign_good.py) is not without surprises, but gives meaningful results.
 
 ```python
 class Bodyguard:
@@ -20,21 +24,26 @@ class Bodyguard:
             self.protect = self.protect + list(args)
 ```
 
-### append (bad)
+### add assign (bad)
 
-[append_bad.py](append_bad.py) contains the same classes, but with a (seemingly) small difference in `Bodyguard.__init__`.<br>
-The example bodyguards are the same. The results are useless.
+[plusequals_bad.py](plusequals_bad.py) &nbsp;
+(The first specific guards `bg_prime` and `bg_foobar` have the same `protect` in all sections.)
 
 ```python
-class Bodyguard:
-    protect = ['the king']
+        if args:
+            self.protect += list(args)
+```
 
-    def __init__(self, *args):
+### append (bad)
+
+[append_bad.py](append_bad.py) &nbsp;
+(All variables in the same section have the same `protect`.)
+
+```python
         if args:
             for arg in args:
                 self.protect.append(arg)
 ```
-
 
 ## different classes to change the class variable
 
