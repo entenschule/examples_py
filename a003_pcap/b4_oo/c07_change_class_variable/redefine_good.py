@@ -12,7 +12,7 @@ class Bodyguard:
 
 
 """
-Bodyguards without specific protectees shall be called "generics". The others shall be called "specifics".
+Bodyguards that protect specific people shall be called "specifics". The others shall be called "generics".
 """
 
 
