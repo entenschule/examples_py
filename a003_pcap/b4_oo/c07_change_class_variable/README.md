@@ -4,21 +4,34 @@ The main class in this example is `Bodyguard`.<br>
 Its class variable is the list `protect`, which by default contains the king.<br>
 The effects of changing `Bodyguard.protect` are not easily guessed.
 
+Stackoverflow: [What is the logic of changing class variables?](https://stackoverflow.com/questions/76823174)
+
 
 ## main class with slightly different init methods
 
-The three files contain the same classes and example variables.<br>
-But there is a (seemingly) small difference in `Bodyguard.__init__`.<br>
-The results for `+=` and `append` make no sense at all. (But they are different.)
+The four files contain the same classes and example variables.<br>
+But there are small differences in `Bodyguard.__init__`,<br>
+affecting whether an old object is modified, or a new one created.<br>
 
-### reassign (good)
+### reassign (better)
 
-[reassign_good.py](reassign_good.py) is not without surprises, but gives meaningful results.
+[reassign_better.py](reassign_better.py) behaves the way it should.
 
 ```python
 class Bodyguard:
     protect = ['the king']
 
+    def __init__(self, *args):
+        self.protect = self.protect[:]  # force reassign also for generic guards
+        if args:
+            self.protect = self.protect + list(args)
+```
+
+### reassign (good, or rather not too bad)
+
+[reassign_good.py](reassign_good.py) shows unwanted behavior for generic guards.
+
+```python
     def __init__(self, *args):
         if args:
             self.protect = self.protect + list(args)
@@ -26,8 +39,7 @@ class Bodyguard:
 
 ### add assign (bad)
 
-[addassign_bad.py](addassign_bad.py) &nbsp;
-(The first specific guards `bg_prime` and `bg_foobar` have the same `protect` in all sections.)
+The results in [addassign_bad.py](addassign_bad.py) make no sense.
 
 ```python
         if args:
@@ -36,7 +48,7 @@ class Bodyguard:
 
 ### append (bad)
 
-[append_bad.py](append_bad.py) &nbsp;
+Those in [append_bad.py](append_bad.py) neither. &nbsp;
 (All variables in the same section have the same `protect`.)
 
 ```python
@@ -45,19 +57,4 @@ class Bodyguard:
                 self.protect.append(arg)
 ```
 
-## different classes to change the class variable
-
-### change in definition of subclass
-
-```python
-class AnnoyingBodyguard(Bodyguard):
-    Bodyguard.protect = ['his majesty the king']
-```
-
-### change in init of unrelated class
-
-```python
-class Bureaucrat:
-    def __init__(self, name):
-        Bodyguard.protect.append(name)
-```
+(One _could_ probably try to understand the difference between the bad versions... Oh, look! A bird!)
