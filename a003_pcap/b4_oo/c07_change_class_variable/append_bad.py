@@ -55,6 +55,7 @@ malfoy = Bureaucrat('Malfoy')
 bg3 = Bodyguard()
 bg_paper = Bodyguard('the secretary of paperwork')
 
+
 assert bg1.protectees == bg2.protectees == bg3.protectees == bg_paper.protectees == bg_prime.protectees == bg_foreign.protectees == [
     'his majesty the king', 'the foreign minister', 'Malfoy', 'the secretary of paperwork'
 ]
