@@ -4,16 +4,16 @@ python -m a003_pcap.b4_oo.c07_change_class_variable.append_bad
 
 
 class Bodyguard:
-    protectees = ['the king']
+    protect = ['the king']
 
     def __init__(self, *args):
         if args:
             for arg in args:
-                self.protectees.append(arg)
+                self.protect.append(arg)
 
 
 """
-Bodyguards without specific protectees shall be called "generics". The others shall be called "specifics".
+Bodyguards without specific protect shall be called "generics". The others shall be called "specifics".
 """
 
 
@@ -21,7 +21,7 @@ bg1 = Bodyguard()
 bg_prime = Bodyguard('the prime minister')
 bg_foobar = Bodyguard('the secretary of foo', 'the secretary of bar')
 
-assert bg1.protectees == bg_prime.protectees == bg_foobar.protectees == [
+assert bg1.protect == bg_prime.protect == bg_foobar.protect == [
     'the king', 'the prime minister', 'the secretary of foo', 'the secretary of bar'
 ]
 
@@ -30,14 +30,14 @@ assert bg1.protectees == bg_prime.protectees == bg_foobar.protectees == [
 
 
 class AnnoyingBodyguard(Bodyguard):
-    Bodyguard.protectees = ['his majesty the king']
+    Bodyguard.protect = ['his majesty the king']
 
 
 bg2 = Bodyguard()
 bg_foreign = Bodyguard('the foreign minister')
 
 
-assert bg1.protectees == bg2.protectees == bg_foreign.protectees == bg_prime.protectees == bg_foobar.protectees == [
+assert bg1.protect == bg2.protect == bg_foreign.protect == bg_prime.protect == bg_foobar.protect == [
     'his majesty the king', 'the foreign minister'
 ]
 
@@ -47,8 +47,7 @@ assert bg1.protectees == bg2.protectees == bg_foreign.protectees == bg_prime.pro
 
 class Bureaucrat:
     def __init__(self, name):
-        self.name = name
-        Bodyguard.protectees.append(name)
+        Bodyguard.protect.append(name)
 
 
 malfoy = Bureaucrat('Malfoy')
@@ -56,6 +55,6 @@ bg3 = Bodyguard()
 bg_paper = Bodyguard('the secretary of paperwork')
 
 
-assert bg1.protectees == bg2.protectees == bg3.protectees == bg_paper.protectees == bg_prime.protectees == bg_foreign.protectees == [
+assert bg1.protect == bg2.protect == bg3.protect == bg_paper.protect == bg_prime.protect == bg_foreign.protect == [
     'his majesty the king', 'the foreign minister', 'Malfoy', 'the secretary of paperwork'
 ]
