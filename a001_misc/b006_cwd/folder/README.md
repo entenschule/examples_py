@@ -1,6 +1,6 @@
 This script prints ■ `__file__` and ● `os.getcwd()`,
 and does `os.mkdir('DELETE_ME')`.<br>
-Additionally it prints, ▶ whether or ▷ not `examples_py` is in `sys.path`.<br>
+Additionally it prints, ▶ whether or not `examples_py` is in `sys.path`.<br>
 The folder is always created in the current working directory shown with `os.getcwd()`.
 
 Stackoverflow:
