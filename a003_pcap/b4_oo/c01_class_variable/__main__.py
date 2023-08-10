@@ -21,6 +21,10 @@ class ConstitutionalMonarch(Monarch):
     pass
 
 
+assert Monarch.coat_of_arms == ConstitutionalMonarch.coat_of_arms == 'lion'
+assert Usurper.coat_of_arms == 'dragon'
+
+
 edward = Monarch('Edward')
 eric = Usurper('Eric')
 william = ConstitutionalMonarch('William')

@@ -1,5 +1,5 @@
 """
-python -m a003_pcap.b4_oo.c04_inherit
+python -m a003_pcap.b4_oo.c04_inherit.d1_subclass_without_init
 """
 
 

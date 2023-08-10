@@ -1,6 +1,7 @@
 .idea/*
 *__pycache__*
 *DOWNLOADS*
+*DELETE_ME*
 *.py[cod]
 /env/
 /.pytest_cache/

@@ -1,5 +1,5 @@
 """
-python -m a003_pcap.b4_oo.c03_mro
+python -m a003_pcap.b4_oo.c03_mro.d1_some_fail
 """
 
 

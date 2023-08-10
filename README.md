@@ -1,29 +1,6 @@
 # Python examples
 
-## dependencies
+This is a collection of small Python examples.<br>
+The aim is usually to show a problem and to document the solution.
 
-`pip install -U pytest` (7.4.0)
-`pip install aiohttp aiofiles`
-
-
-## pytest
-
-`pytest` is to be run with the m-switch: `python -m pytest`<br>
-(Running it without the m-switch would require the presence of more `__init__.py` files.)
-
-
-## questions
-
-* [`a002_book/b31_parallel/c1_concurrent/d2_pi`](a002_book/b31_parallel/c1_concurrent/d2_pi):<br>
-Is there a performance difference by number of workers? How to measure it?
-
-* Why does `pip freeze` contain the line `examples-py @ file:///home/tilman/learn_py/examples_py`?
-
-
-## git
-
-```
-git status                         # check if changes are committed
-git config --global user.name      # check user if in doubt
-git push -u origin main
-```
+See also [installation details](doc/basics.md) and [questions](doc/questions.md).

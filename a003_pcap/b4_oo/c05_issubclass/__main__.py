@@ -9,13 +9,11 @@ class C: pass
 class AB(A, B): pass
 
 
+assert issubclass(A, A)
+assert issubclass(A, (A, B))
 assert issubclass(AB, A)
-
 assert issubclass(AB, (A, B))
-
 assert issubclass(AB, (B, C))
-
-assert not issubclass(AB, (C, list, ZeroDivisionError))
 
 try:
     issubclass((AB, C), B)
