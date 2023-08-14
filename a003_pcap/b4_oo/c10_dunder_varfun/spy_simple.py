@@ -48,3 +48,13 @@ except AttributeError as e:
 
 assert spy.job('secret') == 'spy'
 assert spy.job('guess') == 'trade commissioner'
+
+
+########################################################################################################################
+
+
+# Surprise! Actually the double underscores don't hide anything.
+# `__job` is accessible as `_Spy__job`. This is called name mangling.
+
+
+assert spy._Spy__job == 'spy'

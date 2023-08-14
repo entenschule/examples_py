@@ -49,3 +49,10 @@ try:
     assert False
 except AttributeError as e:
     assert str(e) == "'Spy' object has no attribute '__password_function'"
+
+
+########################################################################################################################
+
+
+assert spy._Spy__job == 'spy'
+assert spy._Spy__password_string == spy._Spy__password_function() == 'secret'
