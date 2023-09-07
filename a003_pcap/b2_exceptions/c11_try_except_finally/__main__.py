@@ -14,3 +14,12 @@ def f():
 
 
 print('The function returns:', f())
+
+
+"""
+ArithmeticError
+During handling of the above exception, another exception occurred:
+AssertionError
+During handling of the above exception, another exception occurred:
+AttributeError
+"""
