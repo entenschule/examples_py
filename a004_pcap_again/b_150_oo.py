@@ -29,6 +29,7 @@ base_diner = BaseDiner()
 fancy_diner = FancyDiner()
 super_fancy_diner = SuperFancyDiner()
 
+
 assert base_diner.menu == 'Spam'
 assert fancy_diner.menu == 'Eggs'
 assert super_fancy_diner.menu == 'Spam Eggs'
