@@ -13,13 +13,13 @@
 
 # The content of this file will be the two bytes C2 AF.
 with open('ambiguous.txt', 'wb') as f:
-    encoded = "┬Ц".encode('cp855')
+    encoded = "┬Ц".encode('cp855')  # codepage 855 (cyrillic)
     assert encoded == b'\xc2\xa5'
     f.write(encoded)
 
 with open('ambiguous.txt', 'rb') as f:
     encoded = f.read(2)
-    decoded = encoded.decode('cp857')
+    decoded = encoded.decode('cp857')  # codepage 857 (turkish)
     assert decoded == '┬Ñ'
 
 with open('ambiguous.txt', 'r') as f:
@@ -36,7 +36,7 @@ with open('yen_sign.txt', 'w') as f:
     f.write(s)
 
 
-# The content of this file will also be the three bytes EC 8A A5.
+# The content of this file will be the three bytes EC 8A A5.
 with open('hangul_syllable_seug.txt', 'w') as f:
     s = '슥'
     assert hex(ord(s)) == '0xc2a5'
