@@ -11,7 +11,7 @@
 """
 
 
-# The content of this file will be the two bytes C2 AF.
+# The content of this file will be the two bytes C2 A5.
 with open('ambiguous.txt', 'wb') as f:
     encoded = "┬Ц".encode('cp855')  # codepage 855 (cyrillic)
     assert encoded == b'\xc2\xa5'
@@ -29,7 +29,7 @@ with open('ambiguous.txt', 'r') as f:
 ###################################################################
 
 
-# The content of this file will also be the two bytes C2 AF.
+# The content of this file will also be the two bytes C2 A5.
 with open('yen_sign.txt', 'w') as f:
     s = '¥'
     assert hex(ord(s)) == '0xa5'
