@@ -10,7 +10,7 @@ def spam():
 
 try:
     spam()
-    assert False  # not reached, because the line before fails
+    assert False  # canary
 except UnboundLocalError:
     pass
 
