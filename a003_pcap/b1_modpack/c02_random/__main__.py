@@ -29,7 +29,7 @@ for code_string in code_strings:
     print(code_string, '  ', eval('random.' + code_string))
 
 
-print('########################### initial list: shuffled list', foods)
+print('########################### shuffled list:', foods)
 
 
 # The following code shows, that sequence of results is always the same, when the same seed is used.
