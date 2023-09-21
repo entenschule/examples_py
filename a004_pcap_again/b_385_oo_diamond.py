@@ -22,8 +22,17 @@ old_fish_id = id(Fish)
 
 assert [_.__name__ for _ in Fish.__bases__] == ['Eggs', 'Spam']
 
-# `Eggs` is the first argument, but only inherits `value`.
-# `Spam` comes second, and has `value` directly. That outranks MRO.
+
+# `value` is only an inherited attribute of `Eggs`.
+assert hasattr(Eggs, 'value')
+assert 'value' not in Eggs.__dict__
+
+# `value` is a direct attribute of `Spam`.
+assert hasattr(Spam, 'value')
+assert 'value' in Spam.__dict__
+
+
+# `Fish` inherits `value` from the second argument `Spam`, because directness outranks argument order.
 assert Fish.value == Fish().value == 's p a m'
 
 
