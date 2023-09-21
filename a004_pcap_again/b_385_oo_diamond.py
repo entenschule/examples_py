@@ -20,7 +20,7 @@ class Fish(Eggs, Spam):
 old_fish_id = id(Fish)
 
 
-assert [_.__name__ for _ in Fish.__bases__] == ['Eggs', 'Spam']
+assert [base.__name__ for base in Fish.__bases__] == ['Eggs', 'Spam']
 
 
 # `value` is only an inherited attribute of `Eggs`.
