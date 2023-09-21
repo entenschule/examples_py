@@ -20,6 +20,8 @@ class Fish(Eggs, Spam):
 old_fish_id = id(Fish)
 
 
+assert [_.__name__ for _ in Fish.__bases__] == ['Eggs', 'Spam']
+
 # `Eggs` is the first argument, but only inherits `value`.
 # `Spam` comes second, and has `value` directly. That outranks MRO.
 assert Fish.value == Fish().value == 's p a m'
